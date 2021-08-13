@@ -68,7 +68,7 @@ allCards.forEach(function (el) {
 });
 
 function createButtonListener(love) {
-  return function (event) {
+    return function (event) {
     var cards = document.querySelectorAll('.tinder--card:not(.removed)');
     var moveOutWidth = document.body.clientWidth * 1.5;
 
@@ -79,15 +79,15 @@ function createButtonListener(love) {
     card.classList.add('removed');
 
     if (love) {
-      card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+        card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
     } else {
-      card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+        card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
     }
 
     initCards();
 
     event.preventDefault();
-  };
+    };
 }
 
 var nopeListener = createButtonListener(false);

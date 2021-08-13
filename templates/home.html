@@ -12,31 +12,13 @@
         </div>
 
         <div class="tinder--cards">
-            <div class="tinder--card">
-            <img src="static/img/i1.jpg">
-            <h3>Demo card 1</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-            </div>
-            <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/animals">
-            <h3>Demo card 2</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-            </div>
-            <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/nature">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-            </div>
-            <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/tech">
-            <h3>Demo card 4</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-            </div>
-            <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/arch">
-            <h3>Demo card 5</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-            </div>
+            {%for item in people%}
+                <div class="tinder--card">
+                    <img src="{{item[0]}}">
+                    <h3>{{item[1]}}</h3>
+                    <p>{{item[2]}}</p>
+                </div>
+            {%endfor%}
         </div>
 
         <div class="tinder--buttons">
