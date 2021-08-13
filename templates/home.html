@@ -4,19 +4,31 @@
 {% endblock %}
 
 {% block body %}
-
     <div class="tinder">
+        
+        <!-- Sidebar -->
+        <div class="sidenav">
+            <div class="sidenav-title">
+                <h4>Companion App</h4>
+            </div>
+            <a href="{{ url_for('messages') }}"><i class="fa fa-envelop"></i> Messages</a>
+            <a href="#profile"><i class="fa fa-user"></i> My Profile</a>
+        </div>
+
         <div class="tinder--status">
             <i class="fa fa-remove"></i>
             <i class="fa fa-heart"></i>
         </div>
 
         <div class="tinder--cards">
-            {%for item in people%}
+            {%for name, icon, story in people%}
                 <div class="tinder--card">
-                    <img src="{{item[0]}}">
-                    <h3>{{item[1]}}</h3>
-                    <p>{{item[2]}}</p>
+                    <div class="name-box">
+                        <h2>{{name}} <span class="age">{{icon}}</span></h2>
+                    </div>
+                    <div class="info">
+                        <p>{{story}}</p>
+                    </div>
                 </div>
             {%endfor%}
         </div>
