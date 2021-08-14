@@ -9,34 +9,130 @@
         <!-- Sidebar -->
         <div class="sidenav">
             <div class="sidenav-title">
-                <h4>Companion App</h4>
+                <div>
+                    <h4 class="sidenav-app-title">Companion App</h4>
+                </div>
+                <div class="sidenav-href">
+                    <a href="{{ url_for('profile') }}">My Profile</a>
+                    <a href="{{ url_for('messages') }}">Messages</a>
+                </div>
             </div>
-            <a href="{{ url_for('messages') }}"><i class="fa fa-envelop"></i> Messages</a>
-            <a href="#profile"><i class="fa fa-user"></i> My Profile</a>
-        </div>
 
-        <div class="tinder--status">
-            <i class="fa fa-remove"></i>
-            <i class="fa fa-heart"></i>
-        </div>
 
-        <div class="tinder--cards">
-            {%for name, icon, story in people%}
-                <div class="tinder--card">
-                    <div class="name-box">
-                        <h2>{{name}} <span class="age">{{icon}}</span></h2>
+            {% if not home %}
+                <div class="discussion">
+                    <div class="photo" style="background-image: url(https://m.media-amazon.com/images/M/MV5BMmY2OGM1NjEtNGRiZi00NGY5LThjMzMtOTViYTMwOGM2YmE0XkEyXkFqcGdeQXVyNzY1ODU1OTk@._V1_UY1200_CR85,0,630,1200_AL_.jpg);">
+                        <div class="online"></div>
                     </div>
-                    <div class="info">
-                        <p>{{story}}</p>
+                    <div class="desc-contact">
+                        <p class="name">Megan Leib</p>
+                        <p class="message">9 pm at the bar if possible 😳</p>
+                    </div>
+                    <div class="timer">12 sec</div>
+                </div>
+
+                <div class="discussion">
+                    <div class="photo" style="background-image: url(http://e0.365dm.com/16/08/16-9/20/theirry-henry-sky-sports-pundit_3766131.jpg?20161212144602);">
+                        <div class="online"></div>
+                    </div>
+                    <div class="desc-contact">
+                        <p class="name">Dave Corlew</p>
+                        <p class="message">Let's meet for a coffee or something today ?</p>
+                    </div>
+                    <div class="timer">3 min</div>
+                </div>
+
+                <div class="discussion">
+                    <div class="photo" style="background-image: url(https://tinyclipart.com/resource/man/man-5.jpg);">
+                    </div>
+                    <div class="desc-contact">
+                        <p class="name">Jerome Seiber</p>
+                        <p class="message">I've sent you the annual report</p>
+                    </div>
+                    <div class="timer">42 min</div>
+                </div>
+        
+                <div class="discussion">
+                    <div class="photo" style="background-image: url(http://thomasdaubenton.xyz/portfolio/images/photo.jpg);">
+                        <div class="online"></div>
+                    </div>
+                    <div class="desc-contact">
+                        <p class="name">Thomas Dbtn</p>
+                        <p class="message">See you tomorrow ! 🙂</p>
+                    </div>
+                    <div class="timer">2 hour</div>
+                </div>
+            {% endif %}
+        </div>
+
+        {% if home %}
+            <div class="tinder--status">
+                <i class="fa fa-remove"></i>
+                <i class="fa fa-heart"></i>
+            </div>
+
+            <div class="tinder--cards">
+                {%for name, icon, story in people%}
+                    <div class="tinder--card">
+                        <div class="name-box">
+                            <h2>{{name}} <span class="age">{{icon}}</span></h2>
+                        </div>
+                        <div class="info">
+                            <p>{{story}}</p>
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+
+            <div class="tinder--buttons">
+                <button id="nope"><i class="fa fa-remove"></i></button>
+                <button id="love"><i class="fa fa-heart"></i></button>
+            </div>
+        {% else %}
+            <section class="chat">
+                <div class="header-chat">
+                <i class="icon fa fa-user-o" aria-hidden="true"></i>
+                <p class="name">Megan Leib</p>
+                <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
+                </div>
+                <div class="messages-chat">
+                <div class="message">
+                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
+                    <div class="online"></div>
+                    </div>
+                    <p class="text"> Hi, how are you ? </p>
+                </div>
+                <div class="message text-only">
+                    <p class="text"> What are you doing tonight ? Want to go take a drink ?</p>
+                </div>
+                <p class="time"> 14h58</p>
+                <div class="message text-only">
+                    <div class="response">
+                    <p class="text"> Hey Megan ! It's been a while 😃</p>
                     </div>
                 </div>
-            {%endfor%}
-        </div>
+                <div class="message text-only">
+                    <div class="response">
+                    <p class="text"> When can we meet ?</p>
+                    </div>
+                </div>
+                <p class="response-time time"> 15h04</p>
+                <div class="message">
+                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
+                    <div class="online"></div>
+                    </div>
+                    <p class="text"> 9 pm at the bar if possible 😳</p>
+                </div>
+                <p class="time"> 15h09</p>
+                </div>
 
-        <div class="tinder--buttons">
-            <button id="nope"><i class="fa fa-remove"></i></button>
-            <button id="love"><i class="fa fa-heart"></i></button>
-        </div>
+                <div class="footer-chat">
+                    <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
+                    <input type="text" class="write-message" placeholder="Type your message here"></input>
+                    <i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true"></i>
+                </div>
+            </section>
+        {% endif %}
     </div>
 
     <script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.min.js"></script>
