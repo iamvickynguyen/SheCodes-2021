@@ -8,49 +8,40 @@ class User:
 
 username = User('')
 
+girls = [
+    ('Nguyễn Cẩm Vân', '14', 'Thường xuyên bị cha đánh, quát mắng', 'Bạo lực gia đình'),
+    ('N/A', '16', 'Em có nên phá thai?', 'Lạm dụng'),
+    ('Bắp', '15', 'Bị thầy cô chửi ngu vì không hiểu bài', 'Học quá nhiều'),
+    ('Tường Vân', '15', 'Em muốn nhận hỗ trợ học bổng để tiếp tục đi học', 'Học bổng'),
+    ('Silo', '14', 'Ap luc hoc tap vi me la hieu truong cua truong, ban be soi moi, co lap', 'Hoc tap')
+]
+
+companions = [
+    ('Cô Vành Khuyên', '38', 'Có thể lắng nghe và cho  các em giải pháp phù hợp', 'Tư vấn tâm lý'),
+    ('Cô Thúy', '56', 'Hiểu các con', 'Tư vấn tâm lý'),
+    ('Dũng', '40', 'Có thể tài trợ học bổng', 'Tài trợ học bổng'),
+    ('Minh', '30', 'Tư vấn các vấn đề tâm lý (trầm cảm, áp lực bạn bè cùng trang lứa…)', 'Tư vấn tâm lý'),
+    ('Hà', '25', 'Tư vấn pháp lý, quyền trẻ em', 'Tư vấn tâm lý')
+]
+
 @app.route('/', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
         username.name = request.form.get('username')
-        people = []
-        if username.name != 'cutecookie':
-            people = [('Person 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-                    ('Person 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-                    ('Person 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
-                ]
-        else:
-            people = [('Person 1', 'my strengths: bla bla bla...'),
-                    ('Person 2', 'my strengths: bla bla bla...'),
-                    ('Person 3', 'my strengths: bla bla bla...')
-                ]
-        return render_template('home.html', people = people, home = True, profile = False)
+        return render_template('home.html', people = companions if username.name == 'cutecookie' else girls, home = True, profile = False, matches = True, isgirl = username.name == 'cutecookie')
     return render_template('login.html')
 
 @app.route('/messages', methods=['GET', 'POST'])
 def messages():
-    return render_template('home.html', people = [], home = False, profile = False)
+    return render_template('home.html', people = [], home = False, profile = False, matches = False, isgirl = username.name == 'cutecookie')
 
 @app.route('/matches', methods=['POST', 'GET'])
 def matches():
-    if username.name != 'cutecookie':
-        people = [('Person 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-                ('Person 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-                ('Person 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
-            ]
-    else:
-        people = [('Person 1', 'my strengths: bla bla bla...'),
-                ('Person 2', 'my strengths: bla bla bla...'),
-                ('Person 3', 'my strengths: bla bla bla...')
-            ]
-    return render_template('home.html', people = people, home = True, profile = False)
+    return render_template('home.html', people = companions if username.name == 'cutecookie' else girls, home = True, profile = False, matches = True, isgirl = username.name == 'cutecookie')
 
 @app.route('/profile', methods=['POST', 'GET'])
 def profile():
-    if username.name == 'cutecookie':
-        people = [('Cute Cookie', 'I am a cute cookie!')]
-    else:
-        people = [(username.name, 'my strengths: bla bla bla...')]
-    return render_template('home.html', people = people, home = True, profile = True)
+    return render_template('home.html', people = [girls[0]] if username.name == 'cutecookie' else [companions[0]], home = True, profile = True, matches = False, isgirl = username.name == 'cutecookie')
 
 if __name__ == "__main__":
     app.run(debug=True)
