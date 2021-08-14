@@ -486,3 +486,34 @@ body {
 .clickable {
     cursor: pointer;
 }
+
+.setting {
+    width: 100%;
+    height: 50px;
+    background-color: #4c4c4c;
+    border-bottom: solid 1px #E0E0E0;
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.setting-story {
+    width: 100%;
+    height: 200px;
+    background-color: #4c4c4c;
+    border-bottom: solid 1px #E0E0E0;
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.save-btn {
+    bottom: 0;
+    position: absolute;
+}
+
+.save-setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

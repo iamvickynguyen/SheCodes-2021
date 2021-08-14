@@ -13,8 +13,9 @@
                     <h4 class="sidenav-app-title">Companion App</h4>
                 </div>
                 <div class="sidenav-href">
-                    <a href="{{ url_for('profile') }}">My Profile</a>
+                    <a href="{{ url_for('matches') }}">Matches</a>
                     <a href="{{ url_for('messages') }}">Messages</a>
+                    <a href="{{ url_for('profile') }}">My Profile</a>
                 </div>
             </div>
 
@@ -63,6 +64,26 @@
                     <div class="timer">2 hour</div>
                 </div>
             {% endif %}
+
+            {% if profile %}
+                <div class="setting">
+                    <label class="col-md-2 control-label" style="color:white;">Name</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="username" value="">
+                    </div>
+                </div>
+                
+                <label class="col-md-2 control-label" style="padding-top:10px;color:white;">Story</label>
+                <div class="col-lg">
+                    <textarea type="text" class="form-control" name="story" value=""></textarea>
+                </div>
+
+                <div class="save-setting">
+                    <button class="btn btn-success save-btn">Save</button>  
+                </div>
+
+
+            {% endif %}
         </div>
 
         {% if home %}
@@ -72,10 +93,10 @@
             </div>
 
             <div class="tinder--cards">
-                {%for name, icon, story in people%}
+                {%for name, story in people%}
                     <div class="tinder--card">
                         <div class="name-box">
-                            <h2>{{name}} <span class="age">{{icon}}</span></h2>
+                            <h2>{{name}}</h2>
                         </div>
                         <div class="info">
                             <p>{{story}}</p>
@@ -126,7 +147,7 @@
                 <p class="time"> 15h09</p>
                 </div>
 
-                <div class="footer-chat">
+                <div class="footer-chat">`
                     <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
                     <input type="text" class="write-message" placeholder="Type your message here"></input>
                     <i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true"></i>
