@@ -25,14 +25,14 @@
             {% if matches %}
                 <div class="filter-matches side-by-side">
                     <label style="color:white; padding-right: 10px;">Bán kính</label>
-                    <input type="text" id="min-filter" name="min-filter" maxlength="4" size="4" placeholder="min">
-                    <input type="text" id="max-filter" name="max-filter" maxlength="4" size="4" placeholder="max">
+                    <input type="text" id="min-filter" name="min-filter" maxlength="4" size="4" placeholder="trên">
+                    <input type="text" id="max-filter" name="max-filter" maxlength="4" size="4" placeholder="dưới">
                 </div>
 
                 <div class="filter-matches side-by-side">
                     <label style="color:white; padding-right: 10px;">Độ tuổi</label>
-                    <input type="text" id="min-filter" name="min-filter" maxlength="4" size="4" placeholder="min">
-                    <input type="text" id="max-filter" name="max-filter" maxlength="4" size="4" placeholder="max">
+                    <input type="text" id="min-filter" name="min-filter" maxlength="4" size="4" placeholder="trên">
+                    <input type="text" id="max-filter" name="max-filter" maxlength="4" size="4" placeholder="dưới">
                 </div>
 
                 {% if isgirl %}
@@ -125,6 +125,13 @@
                     </div>
                 {% endif %}
 
+                <div class="setting">
+                    <label class="col-md-4 control-label" style="color:white;">Thu âm</label>
+                    <div class="col-md-8">
+                        <button class="btn btn-danger"><i class="fa fa-microphone"></i></button>
+                    </div>
+                </div>
+
                 <div class="save-setting">
                     <button class="btn btn-success save-btn">Lưu</button>  
                 </div>
@@ -142,6 +149,7 @@
                     <div class="tinder--card">
                         <div class="name-box">
                             <h2>{{name}}, <span>{{age}}</span></h2>
+                            <button><i class="fa fa-volume-up"></i></button>
                         </div>
                         <div class="info">
                             <p class="tag-card">#{{tag}}</p>
