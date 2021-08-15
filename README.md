@@ -1,11 +1,11 @@
 # SheCodes-2021
 
-reference: https://codepen.io/colorlib/pen/rxddKy
+### References:
 
-https://codepen.io/RobVermeer/pen/japZpY
+- Login: https://codepen.io/colorlib/pen/rxddKy
+- Register: https://codepen.io/Nupur16/pen/JjEWGre
+- Swipe card:
+    - https://codepen.io/RobVermeer/pen/japZpY
+    - https://codepen.io/greg-forster/pen/BxGypN
+- Chat: https://codepen.io/ThomasDaubenton/pen/QMqaBN
 
-https://codepen.io/greg-forster/pen/BxGypN
-
-https://codepen.io/Momciloo/pen/bEdbxY
-
-https://codepen.io/ThomasDaubenton/pen/QMqaBN

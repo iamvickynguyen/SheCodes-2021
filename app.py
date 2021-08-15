@@ -31,6 +31,10 @@ def login():
         return render_template('home.html', people = companions if username.name == 'cutecookie' else girls, home = True, profile = False, matches = True, isgirl = username.name == 'cutecookie')
     return render_template('login.html')
 
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    return render_template('register.html')
+
 @app.route('/messages', methods=['GET', 'POST'])
 def messages():
     return render_template('home.html', people = [], home = False, profile = False, matches = False, isgirl = username.name == 'cutecookie')

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='register.css') }}">
+{% endblock %}
+
+{% block body %}
+
+	<div class="center">
+		<table>
+			<tr>
+				<td style="padding: 0 10px;">
+					<h1>Đăng kí</h1>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<p>Tại tài khoản mới. Chỉ tốn vài phút thôi.</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div>
+						<input placeholder="Tên" type="text"> <span><input placeholder="Họ"
+								style="float: right;" type="text"></span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div>
+						<input type="email" placeholder="Email">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div>
+						<input placeholder="Mật Khẩu" type="password">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div>
+						<input placeholder="Xác Nhận Mật Khẩu" type="password">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div>
+						<a href="{{ url_for('login') }}"><input type="submit" value="Đăng kí"></a>
+					</div>
+				</td>
+			</tr>
+		</table>
+        <footer>
+            <p>Đã có tài khoản? <a href="https://www.google.com/">Đăng nhập</a></p>
+        </footer>
+        </div>
+
+    {% endblock %}
