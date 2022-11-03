@@ -36,6 +36,9 @@ Giao diện được dựa trên Tinder app. Trẻ em gái có thể lựa chọ
 |:---:|
 | Kết nối |
 
+</br>
+
+Click vào video demo.mp4 để xem cách hoạt động.
 
 ### Tham khảo:
 
